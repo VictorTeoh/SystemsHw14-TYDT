@@ -30,7 +30,6 @@ void current_value( ){
   sd = semget( KEY, 1, IPC_CREAT);
   printf("%d\n", sd);
   printf("semaphore value : %d", semctl( sd, 0, GETVAL, 0));
-  //semctl
 }
 
 void remove_sempahore(){
@@ -52,6 +51,10 @@ int main(int argc, char *argv[]){
     
     if(strncmp(argv[1], "-v", sizeof("-v")) == 0){
       current_value();
+    }
+
+    if(strncmp(argv[1], "-r", sizeof("-r")) == 0){
+      remove_semaphore();
     }
   }
   /* while(1){
